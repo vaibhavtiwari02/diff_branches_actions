@@ -1,4 +1,4 @@
-echo "name: Deploy to Production
+name: Deploy to Production
 on:
   push:
     branches:
@@ -16,4 +16,4 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Deploy to Production
-        run: echo 'Deploying to production...'" > .github/workflows/deploy-dev.yml
+        run: echo 'Deploying to production...'
