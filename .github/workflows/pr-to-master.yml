@@ -1,0 +1,21 @@
+echo "name: Create Pull Request to Master
+on:
+  push:
+    branches:
+      - qa
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Create pull request to master
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: \${{ secrets.GITHUB_TOKEN }}
+          base: master
+          head: qa
+          title: 'Automated PR from QA to Master'
+          body: 'This pull request is created automatically from the QA branch to the master branch.'
+      - name: Wait for PR to be merged
+        run: echo 'Please merge the pull request to deploy changes to production.'" > .github/workflows/pr-to-master.yml

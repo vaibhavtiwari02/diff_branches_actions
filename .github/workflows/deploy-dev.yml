@@ -1,0 +1,19 @@
+echo "name: Deploy to Production
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Node.js (or other environment)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: npm install
+      - name: Deploy to Production
+        run: echo 'Deploying to production...'" > .github/workflows/deploy-dev.yml
